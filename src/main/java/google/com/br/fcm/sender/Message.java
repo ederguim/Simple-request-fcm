@@ -4,16 +4,26 @@ import org.json.JSONObject;
 
 public class Message {
 	
+	private String token;
+	
+	public Message(String token) {
+		this.token = token;
+	}
+	
 	public JSONObject getMessage() {
 		
-		JSONObject notificacao = new JSONObject();
+		JSONObject alert = new JSONObject();
 		
-		JSONObject data = new JSONObject();
+		JSONObject notification = new JSONObject();
 		
-		data.put("message", "mensagem de teste");
+		notification.put("title", "Alert Testing");
 		
-		notificacao.put("data", data);
+		notification.put("body", "Notification de Testing");
 		
-		return notificacao;
+		alert.put("notification", notification);
+		
+		alert.put("to", token);
+		
+		return alert;
 	}
 }
